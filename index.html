@@ -1,668 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xiaoxue Du</title>
-<meta name="description" content="Xiaoxue Du — AI literacy researcher, education strategist, Gates Foundation.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Xiaoxue Du — AI Product, Learning &amp; Human-AI Interaction</title>
+  <meta name="description" content="Xiaoxue Du builds human-centered AI products for learning, memory, and collaboration. Senior Program Officer, Gates Foundation US Programs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    :root{
+      --ink:#17201f;--mid:#52605e;--muted:#7f8c89;--faint:#aab3b1;
+      --accent:#246f6a;--accent-dark:#174e4a;--accent-soft:#eaf4f2;
+      --sand:#f6f3ec;--paper:#fcfbf8;--white:#fff;--rule:#e5e9e6;
+      --serif:'DM Serif Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+      --max:1120px;--px:28px;
+    }
+    body{font-family:var(--sans);font-weight:300;color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:4px}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--px)}
+    header{position:sticky;top:0;z-index:20;background:rgba(252,251,248,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(229,233,230,.8)}
+    nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-family:var(--serif);font-size:1.15rem;color:var(--ink)}
+    .navlinks{display:flex;gap:22px;list-style:none}.navlinks a{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:500}.navlinks a:hover{color:var(--accent);text-decoration:none}
+    .hero{padding:96px 0 56px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.65fr);gap:70px;align-items:end}
+    .eyebrow{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--accent);margin-bottom:20px}
+    h1{font-family:var(--serif);font-size:clamp(1.3rem,2.1vw,1.75rem);font-weight:400;line-height:1.32;letter-spacing:0;max-width:620px}
+    .lede{font-size:1.1rem;color:var(--mid);max-width:720px;margin-top:28px;line-height:1.8}
+    .lede + .lede{margin-top:16px;font-size:1rem}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:11px 18px;font-size:.8rem;font-weight:500;border:1px solid var(--accent);transition:.2s}.btn.primary{background:var(--accent);color:white}.btn.secondary{color:var(--accent);background:transparent}.btn:hover{transform:translateY(-1px);text-decoration:none}
+    .hero-side{border-left:1px solid var(--rule);padding-left:26px}.hero-side p{font-size:.88rem;color:var(--mid);margin-bottom:14px}.hero-side strong{color:var(--ink);font-weight:500}
 
-/* ─── RESET ─────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { font-size: 15px; scroll-behavior: smooth; }
-body {
-  background: #fff;
-  color: #111;
-  font-family: 'Inter', system-ui, sans-serif;
-  font-weight: 300;
-  line-height: 1.75;
-  -webkit-font-smoothing: antialiased;
-}
+    section{padding:88px 0;border-bottom:1px solid var(--rule)}
+    .section-head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:40px}.section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.13em;color:var(--accent)}.section-title{font-family:var(--serif);font-size:2.35rem;font-weight:400;line-height:1.15}.section-intro{font-size:.96rem;color:var(--mid);max-width:720px;margin-top:12px}
 
-/* ─── TOKENS ─────────────────────────────────────────── */
-:root {
-  --serif: 'DM Serif Display', Georgia, serif;
-  --ink: #111;
-  --mid: #444;
-  --muted: #888;
-  --faint: #bbb;
-  --link: #3a6a78;       /* muted teal — Jocelyn's link hue */
-  --link-hover: #1d4a56;
-  --rule: #e8e8e8;
-  --max: 660px;
-  --px: 1.75rem;
-}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+    .card{background:var(--white);border:1px solid var(--rule);border-radius:18px;padding:28px;display:flex;flex-direction:column;transition:.2s}
+    .card:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(23,32,31,.06)}
+    .card-top{display:flex;align-items:start;justify-content:space-between;gap:16px}
+    .card h3{font-family:var(--serif);font-size:1.45rem;font-weight:400;line-height:1.2}
+    .pill{font-size:.64rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 9px;border-radius:999px;white-space:nowrap}
+    .pill.live{color:#2a6040;background:#e8f5ee}
+    .card p{font-size:.9rem;color:var(--mid);margin-top:16px;line-height:1.72}
+    .card .meta{font-size:.73rem;color:var(--muted);margin-top:auto;padding-top:22px}
+    .card .card-link{font-size:.8rem;font-weight:500;margin-top:13px}
+    .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+    .tag{font-size:.67rem;letter-spacing:.03em;padding:3px 9px;border-radius:4px;border:1px solid #d4e4e8;color:var(--accent);background:#f2f8f9}
 
-/* ─── PAGE SHELL ─────────────────────────────────────── */
-.page { max-width: var(--max); margin: 0 auto; padding: 0 var(--px); }
+    .bio-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:start}.bio-copy p{font-size:.96rem;color:var(--mid);margin-bottom:18px}.bio-copy strong{color:var(--ink);font-weight:500}.bio-links{background:var(--sand);border-radius:18px;padding:28px}.bio-links h3{font-family:var(--serif);font-size:1.35rem;font-weight:400;margin-bottom:12px}.bio-links ul{list-style:none}.bio-links li{padding:11px 0;border-bottom:1px solid rgba(23,32,31,.1);font-size:.82rem}.bio-links li:last-child{border-bottom:0}.bio-links a{font-weight:500}.bio-note{font-size:.74rem;color:var(--muted);margin-top:14px}
 
-/* ─── NAV ────────────────────────────────────────────── */
-header { padding: 2.5rem 0 0; }
-nav { display: flex; justify-content: space-between; align-items: baseline; }
-.site-name {
-  font-family: var(--serif);
-  font-size: 1rem;
-  color: var(--ink);
-  text-decoration: none;
-}
-.nav-list { list-style: none; display: flex; gap: 1.6rem; }
-.nav-list a {
-  font-size: .72rem;
-  font-weight: 400;
-  letter-spacing: .08em;
-  text-transform: lowercase;
-  color: var(--muted);
-  text-decoration: none;
-}
-.nav-list a:hover { color: var(--link); }
+    /* publications */
+    .pub-group{margin-bottom:34px}
+    .pub-year{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);padding-bottom:8px;border-bottom:1px solid var(--rule);margin-bottom:20px}
+    .pub{display:grid;grid-template-columns:26px 1fr;gap:0 14px;margin-bottom:22px;align-items:start}
+    .pub-num{font-size:.76rem;color:var(--faint);text-align:right;padding-top:4px}
+    .pub-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;line-height:1.45;display:block;margin-bottom:4px}
+    .pub-title a{color:var(--ink)}.pub-title a:hover{color:var(--accent)}
+    .pub-authors{font-size:.82rem;color:var(--muted);line-height:1.6}
+    .pub-authors .me{font-weight:500;color:var(--mid)}
+    .pub-venue{font-size:.8rem;font-style:italic;color:var(--accent);margin-top:2px}
+    .badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+    .badge{font-size:.65rem;letter-spacing:.04em;padding:2px 8px;border:1px solid var(--rule);border-radius:4px;color:var(--muted)}
+    .badge.link{border-color:var(--accent);color:var(--accent)}
+    .badge.review{border-style:dashed;font-style:italic}
 
-/* ─── HERO ────────────────────────────────────────────── */
-.hero {
-  padding: 3.25rem 0 2.75rem;
-}
-.hero-name {
-  font-family: var(--serif);
-  font-size: 2.85rem;
-  font-weight: 400;
-  line-height: 1.08;
-  letter-spacing: -.01em;
-  color: var(--ink);
-  margin-bottom: .2rem;
-}
+    .writing-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+    .side-note{background:var(--sand);border-radius:18px;padding:28px}.side-note h3{font-family:var(--serif);font-size:1.35rem;font-weight:400}.side-note p{font-size:.88rem;color:var(--mid);margin-top:12px}.side-note a{display:inline-block;margin-top:8px;font-size:.8rem;font-weight:500}
 
-.hero-role {
-  font-size: .8rem;
-  font-weight: 400;
-  color: var(--muted);
-  letter-spacing: .04em;
-  margin-bottom: 1.4rem;
-  line-height: 1.6;
-}
-.hero-role span { color: var(--mid); }
-.hero-bio {
-  font-size: .93rem;
-  color: var(--mid);
-  line-height: 1.85;
-  max-width: 500px;
-}
-.hero-bio + .hero-bio { margin-top: .7rem; }
-a { color: var(--link); text-decoration: none; }
-a:hover { text-decoration: underline; text-underline-offset: 3px; }
-.hero-photo {
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: #e8f2f0;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--serif); font-style: italic;
-  font-size: 1.4rem; color: var(--link);
-  flex-shrink: 0;
-}
+    /* news */
+    .news{border-top:1px solid var(--rule)}
+    .news-row{display:grid;grid-template-columns:110px 1fr;gap:22px;padding:16px 0;border-bottom:1px solid var(--rule)}
+    .news-row time{font-size:.74rem;color:var(--muted);padding-top:2px}
+    .news-row p{font-size:.9rem;color:var(--mid);line-height:1.7}
+    .news-row strong{font-weight:500;color:var(--ink)}
 
-/* ─── SOCIAL ROW ─────────────────────────────────────── */
-.social {
-  display: flex; gap: 1.25rem; flex-wrap: wrap;
-  padding: .1rem 0 2.5rem;
-  border-bottom: 1px solid var(--rule);
-}
-.social a {
-  font-size: .75rem; font-weight: 400;
-  color: var(--muted); display: flex; align-items: center; gap: .3rem;
-  letter-spacing: .02em;
-}
-.social a:hover { color: var(--link); text-decoration: none; }
-.social svg { width: 12px; height: 12px; opacity: .7; }
+    footer{padding:34px 0 48px;color:var(--faint);font-size:.72rem;display:flex;justify-content:space-between;gap:20px}
 
-/* ─── SECTION ────────────────────────────────────────── */
-.sec { padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
-.sec:last-child { border-bottom: none; }
-.sec-label {
-  font-size: .68rem;
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--faint);
-  margin-bottom: 1.6rem;
-}
-
-/* ─── NEWS ───────────────────────────────────────────── */
-.news-row {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-  column-gap: .9rem;
-  margin-bottom: .8rem;
-  align-items: baseline;
-}
-.news-date { font-size: .73rem; color: var(--faint); padding-top: .06rem; }
-.news-text { font-size: .88rem; color: var(--mid); line-height: 1.75; }
-.news-text strong { font-weight: 500; color: var(--ink); }
-
-/* ─── PUBLICATIONS ───────────────────────────────────── */
-.pub-group { margin-bottom: 2.25rem; }
-.pub-year-label {
-  font-size: .7rem;
-  font-weight: 500;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--faint);
-  margin-bottom: 1.1rem;
-  padding-bottom: .35rem;
-  border-bottom: 1px solid var(--rule);
-}
-.pub {
-  display: grid;
-  grid-template-columns: 20px 1fr;
-  gap: 0 .75rem;
-  margin-bottom: 1.5rem;
-  align-items: start;
-}
-.pub-num {
-  font-size: .73rem;
-  color: var(--faint);
-  padding-top: .18rem;
-  text-align: right;
-  font-weight: 300;
-}
-.pub-body {}
-.pub-title {
-  font-family: var(--serif);
-  font-size: .98rem;
-  font-weight: 400;
-  color: var(--ink);
-  line-height: 1.5;
-  display: block;
-  margin-bottom: .2rem;
-}
-.pub-title a { color: var(--ink); }
-.pub-title a:hover { color: var(--link); text-decoration: underline; }
-.pub-authors {
-  font-size: .8rem;
-  font-weight: 300;
-  color: var(--muted);
-  margin-bottom: .18rem;
-  line-height: 1.6;
-}
-.pub-authors .me { font-weight: 500; color: var(--mid); }
-.pub-venue {
-  font-size: .78rem;
-  font-style: italic;
-  color: var(--link);
-  margin-bottom: .25rem;
-}
-.pub-badges { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .3rem; }
-.badge {
-  font-size: .64rem;
-  font-weight: 400;
-  letter-spacing: .04em;
-  padding: 1px 7px;
-  border: 1px solid var(--rule);
-  border-radius: 3px;
-  color: var(--muted);
-}
-.badge-award { border-color: #c8a96e; color: #8a6a2e; }
-.badge-link { border-color: var(--link); color: var(--link); }
-.badge-link a { color: inherit; }
-.badge-review { border-color: var(--faint); color: var(--faint); font-style: italic; }
-
-/* ─── PROJECTS ───────────────────────────────────────── */
-.proj {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--rule);
-}
-.proj:last-child { border-bottom: none; padding-bottom: 0; }
-.proj-header { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .3rem; }
-.proj-name {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--ink);
-}
-.proj-name a { color: var(--ink); }
-.proj-name a:hover { color: var(--link); text-decoration: underline; }
-.proj-pill {
-  font-size: .64rem;
-  letter-spacing: .05em;
-  padding: 2px 8px;
-  border-radius: 2px;
-  flex-shrink: 0;
-  font-weight: 400;
-}
-.pill-live { background: #e8f5ee; color: #2a6040; border: 1px solid #bde0cc; }
-.pill-open { background: #e8eef8; color: #3a4a7a; border: 1px solid #bfccee; }
-.pill-active { background: #f8f0e8; color: #7a5020; border: 1px solid #e0c89a; }
-.pill-review { background: #f5f5f5; color: var(--muted); border: 1px solid var(--rule); }
-.proj-meta {
-  font-size: .76rem;
-  color: var(--muted);
-  margin-bottom: .6rem;
-  display: flex; gap: .5rem; flex-wrap: wrap; align-items: center;
-}
-.proj-meta-sep { color: var(--faint); }
-.proj-desc { font-size: .88rem; color: var(--mid); line-height: 1.82; margin-bottom: .75rem; }
-.proj-tags { display: flex; gap: .35rem; flex-wrap: wrap; }
-.ptag {
-  font-size: .67rem;
-  font-weight: 400;
-  letter-spacing: .03em;
-  padding: 2px 8px;
-  border-radius: 3px;
-  border: 1px solid #d4e4e8;
-  color: var(--link);
-  background: #f2f8f9;
-}
-
-
-
-/* ─── ABOUT ──────────────────────────────────────────── */
-.about-block { font-size: .92rem; color: var(--mid); line-height: 1.9; }
-.about-block p + p { margin-top: .85rem; }
-.about-block strong { font-weight: 500; color: var(--ink); }
-
-/* ─── CONTACT ────────────────────────────────────────── */
-.contact-rows { display: grid; grid-template-columns: 72px 1fr; row-gap: .45rem; font-size: .88rem; }
-.ck { color: var(--faint); font-size: .76rem; padding-top: .12rem; }
-.cv { color: var(--mid); }
-
-/* ─── FOOTER ─────────────────────────────────────────── */
-footer { padding: 2.5rem 0 3.5rem; font-size: .72rem; color: var(--faint); }
-
-/* ─── RESPONSIVE ─────────────────────────────────────── */
-@media (max-width: 500px) {
-  :root { --px: 1.2rem; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-photo { width: 78px; height: 78px; }
-  .hero-name { font-size: 2.1rem; }
-  .news-row { grid-template-columns: 42px 1fr; }
-  .sc { gap: 1rem; }
-}
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
-</style>
+    @media(max-width:820px){.navlinks{display:none}.hero{grid-template-columns:1fr;gap:36px;padding-top:70px}.hero-side{border-left:0;border-top:1px solid var(--rule);padding:22px 0 0}.section-head{grid-template-columns:1fr;gap:12px}.cards,.themes,.writing-grid,.bio-grid{grid-template-columns:1fr}}
+    @media(max-width:520px){:root{--px:20px}h1{font-size:1.45rem}.cards{grid-template-columns:1fr}.news-row{grid-template-columns:1fr;gap:4px}footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-
-<div class="page">
-
-<!-- NAV -->
 <header>
-  <nav>
-    <a class="site-name" href="#">Xiaoxue Du</a>
-    <ul class="nav-list">
-      <li><a href="#about">about</a></li>
-      <li><a href="#news">news</a></li>
-      <li><a href="#publications">publications</a></li>
-      <li><a href="#projects">projects</a></li>
-      <li><a href="#contact">contact</a></li>
-    </ul>
-  </nav>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#top">Xiaoxue Du</a>
+      <ul class="navlinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#perspective">About</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#news">News</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<!-- HERO -->
-<div class="hero">
-  <div>
-    <h1 class="hero-name">Xiaoxue Du</h1>
-
-    <p class="hero-bio">
-      I study how AI can augment human learning — and build tools that make that real. My work spans frontier AI technologies, AI literacy, education strategy, and the infrastructure needed to deploy AI responsibly at scale. I develop curriculum frameworks, agentic tools, and field systems for K–12 and postsecondary education, with a particular focus on learners who have been historically underserved.
-    </p>
-    <p class="hero-bio">
-      I have collaborated with the MIT Media Lab, Stanford HAI, frontier AI labs, and non-profit partners. My tools are used by teachers and students across the US, and my books are published by Corwin Press and Springer Nature.
-    </p>
-  </div>
-</div>
-
-<!-- SOCIAL -->
-<div class="social">
-  <a href="mailto:xdu@gatesfoundation.org"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>email</a>
-  <a href="https://github.com/xd2164" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>github</a>
-  <a href="https://scholar.google.com/citations?hl=en&user=JbQVY8oAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>google scholar</a>
-  <a href="https://www.linkedin.com/in/xiaoxue-du-bamboo/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin</a>
-  <a href="https://hcp.me/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>hcp.me</a>
-</div>
-
-<!-- ABOUT -->
-<div class="sec" id="about">
-  <p class="sec-label">About</p>
-  <div class="about-block">
-    <p>
-      I am a Senior Program Officer at the <strong>Gates Foundation</strong>'s US Programs, where I support AI strategy, infrastructure, and deployment for K–12 and postsecondary education. I work alongside <a href="https://www.gatesfoundation.org" target="_blank" rel="noopener">foundation colleagues</a>, university researchers, and AI companies including Anthropic to build the field conditions for responsible, equitable AI adoption in education.
-    </p>
-    <p>
-      My research centers on <strong>AI literacy</strong> — what it means to understand AI well enough to question it — and how to design systems that build that capacity rather than bypass it. I have published two books (Corwin 2025, Springer 2026) and peer-reviewed papers with co-authors from MIT Media Lab, Columbia University, and Teachers College. My work spans curriculum frameworks, game-based learning, professional development, and agentic AI safety.
-    </p>
-    <p>
-      I am also a contributor to the <strong>Human Context Protocol</strong> (MIT, Stanford, Oxford — Shah et al.), an open architecture for user-governed AI memory and personalization; a modeler of frontier agentic AI safety risks applied to education infrastructure; and an external evaluator for the <a href="https://www.nsf.gov" target="_blank" rel="noopener">NSF</a>-funded Science Pathways Scholars Program (SP)² at Barnard College (Award 2030903).
-    </p>
-    <p>
-      I hold an EdD from <a href="https://www.tc.columbia.edu" target="_blank" rel="noopener">Teachers College, Columbia University</a>. Before the Gates Foundation I held positions at the University of Chicago and collaborated with the MIT Media Lab on AI literacy and human-AI interaction research.
-    </p>
-  </div>
-</div>
-
-<!-- NEWS -->
-<div class="sec" id="news">
-  <p class="sec-label">News</p>
-
-
-  <div class="news-row">
-    <span class="news-date">Jun 2026</span>
-    <span class="news-text">Launched <a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me</a> — a live demo of the <strong>Human Context Protocol</strong>, implementing memory, consent, and cross-system handoff for user-governed AI personalization.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">May 2026</span>
-    <span class="news-text">Organized the <strong>USP Day of AI Learning</strong> — the Gates Foundation US Programs' first structured AI literacy event.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">May 2026</span>
-    <span class="news-text">Co-organized the <strong>Wharton × Gates Foundation Builder-a-thon</strong> on AI's impact on jobs and learning.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">2026</span>
-    <span class="news-text">New book: <a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener"><strong>A Pedagogical Framework for K–12 AI Literacy</strong></a> (Lyublinskaya &amp; Du) published by Springer Nature in the Texts in Education series.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">2025</span>
-    <span class="news-text">Completed the <strong>Global Memory Workshop</strong> synthesis report on portable human context and user-governed memory architecture (AWS, Mozilla, Stanford HAI, Gates Foundation).</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">Jul 2025</span>
-    <span class="news-text">New book: <a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener"><strong>Teaching AI Literacy Across the Curriculum: A K-12 Handbook</strong></a> (Lyublinskaya &amp; Du) published by Corwin Press.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">2025</span>
-    <span class="news-text">Presented <strong>Empathy Co-Pilots and AI Literacy Infrastructure</strong> at the MIT Media Lab Members Meeting, Rising Stars Panel.</span>
-  </div>
-  <div class="news-row">
-    <span class="news-date">2023</span>
-    <span class="news-text">Paper accepted: <strong>Play by Design: Developing AI Literacy through Game-based Learning</strong>. Journal of Computer Science Research. MIT Media Lab affiliation.</span>
-  </div>
-</div>
-
-<!-- PUBLICATIONS -->
-<div class="sec" id="publications">
-  <p class="sec-label">Publications</p>
-
-  <!-- 2026 -->
-  <div class="pub-group">
-    <div class="pub-year-label">2026</div>
-
-    <div class="pub">
-      <span class="pub-num">1</span>
-      <div class="pub-body">
-        <span class="pub-title"><a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener">A Pedagogical Framework for K–12 AI Literacy: Development, Validation, and Applications in Teacher Education</a></span>
-        <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
-        <div class="pub-venue">Springer Texts in Education. Springer Nature Switzerland AG.</div>
-        <div class="pub-badges">
-          <span class="badge badge-link"><a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener">Springer →</a></span>
-          <span class="badge">book</span>
-          <span class="badge">K–12</span>
-          <span class="badge">AI literacy</span>
+<main id="top">
+  <div class="wrap">
+    <section class="hero" style="border-bottom:0">
+      <div>
+        <div class="eyebrow">AI Product · Learning · Human-AI Interaction</div>
+        <h1>Building human-centered AI products for learning, memory, and collaboration.</h1>
+        <p class="lede">I am an AI product leader and human-AI interaction researcher working across generative AI, learning science, agents, and responsible personalization. I translate emerging AI capabilities into products, infrastructure, and real-world learning experiences—from portable AI memory and learning agents to tools designed with educators and young people.</p>
+        <p class="lede">I have collaborated with the MIT Media Lab, Stanford HAI, frontier AI labs, and non-profit partners. My tools are used by teachers and students across the US, and my books are published by Corwin Press and Springer Nature.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#work">Explore selected work</a>
         </div>
       </div>
-    </div>
+      <aside class="hero-side">
+        <p><strong>Currently</strong><br />Senior Program Officer, AI Innovation &amp; Access, Gates Foundation US Programs</p>
+        <p><strong>Previously</strong><br />McKinsey &amp; Company · MIT Media Lab · Columbia University · United Nations</p>
+        <p><strong>Research focus</strong><br />Human-AI interaction · AI literacy · learning science · responsible AI · <a href="https://hcp.me/" target="_blank" rel="noopener">Human Context Protocol (HCP)</a></p>
+        <p><strong>Based in</strong><br />Bellevue, WA</p>
+      </aside>
+    </section>
+  </div>
 
-    <div class="pub">
-      <span class="pub-num">2</span>
-      <div class="pub-body">
-        <span class="pub-title">Portable Human Context: Toward User-Governed Memory Architecture for Personal AI</span>
-        <div class="pub-authors"><span class="me">Du, X.</span></div>
-        <div class="pub-venue">Global Memory Workshop Final Report. AWS, Mozilla, Stanford HAI, Gates Foundation.</div>
-        <div class="pub-badges">
-          <span class="badge badge-link"><a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me →</a></span>
-          <span class="badge">memory</span>
-          <span class="badge">AI architecture</span>
+  <div class="wrap">
+    <section id="work">
+      <div class="section-head">
+        <div class="section-kicker">Selected work</div>
+        <div>
+          <h2 class="section-title">Products and infrastructure for more useful, trusted AI.</h2>
+          <p class="section-intro">My work spans the product layer and the infrastructure beneath it: persistent context, human-AI collaboration, safety and transparency, and learning experiences designed around real users.</p>
         </div>
       </div>
-    </div>
 
-    <div class="pub">
-      <span class="pub-num">3</span>
-      <div class="pub-body">
-        <span class="pub-title">Pedagogical framework for AI literacy integration: Applications for mathematics teaching and learning</span>
-        <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
-        <div class="pub-venue">Proceedings of CERME14. European Society for Research in Mathematics Education, Free University of Bozen-Bolzano.</div>
-        <div class="pub-badges">
-          <span class="badge">conference</span>
-          <span class="badge">mathematics education</span>
-          <span class="badge">AI literacy</span>
+      <div class="cards">
+        <article class="card">
+          <div class="card-top"><h3>Human Context Protocol</h3><span class="pill live">Live · hcp.me</span></div>
+          <p>Open initiative for portable human and learner context as digital public infrastructure. <a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me</a> is a working demo of memory layers, granular consent flows, and cross-system handoff end-to-end—implementing a standard for how AI systems transfer personal context without ceding user control.</p>
+          <div class="tags"><span class="tag">memory architecture</span><span class="tag">user-governed AI</span><span class="tag">consent</span><span class="tag">portability</span></div>
+          <div class="meta">Underlying research by Shah et al. (MIT, Stanford, Oxford) · LLM memory · interoperability</div>
+          <a class="card-link" href="https://hcp.me/" target="_blank" rel="noopener">hcp.me ↗</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h3>Humanly</h3><span class="pill live">Live</span></div>
+          <p>A configurable and traceable human-AI collaborative writing environment. Humanly records how writing is created—including typing, paste, and AI assistance—so people can work with AI while preserving transparency, authorship evidence, and user control.</p>
+          <div class="tags"><span class="tag">collaborative writing</span><span class="tag">traceability</span><span class="tag">authorship</span><span class="tag">AI assistance</span></div>
+          <div class="meta">Product · human-AI interaction · transparency</div>
+          <a class="card-link" href="https://writehumanly.net/" target="_blank" rel="noopener">writehumanly.net ↗</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h3>System Prompt Index</h3><span class="pill live">Live</span></div>
+          <p>An open library and assurance effort for examining system prompts—the hidden instructions that shape AI behavior. The project brings greater transparency and accountability to how AI products encode identity, privacy, safety, truthfulness, and user-agency protections.</p>
+          <div class="tags"><span class="tag">transparency</span><span class="tag">assurance</span><span class="tag">AI safety</span><span class="tag">open library</span></div>
+          <div class="meta">1,000+ system prompts · 400+ products</div>
+          <a class="card-link" href="https://systempromptindex.ai/" target="_blank" rel="noopener">systempromptindex.ai ↗</a>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h3>By Teens, For Teens</h3><span class="pill">Youth co-design</span></div>
+          <p>A youth-centered AI design initiative and global portable-memory hackathon designed to engage approximately 4,000 students and educators. The product experience embeds AI safety by design, privacy, user control, and responsible agent behavior from the outset.</p>
+          <div class="tags"><span class="tag">youth co-design</span><span class="tag">learning agents</span><span class="tag">safety by design</span><span class="tag">global activation</span></div>
+          <div class="meta">Youth co-design · learning agents · global activation</div>
+        </article>
+      </div>
+    </section>
+
+    <section id="perspective">
+      <div class="section-head">
+        <div class="section-kicker">About</div>
+        <div>
+          <h2 class="section-title">Building the future of AI personalization across product, interaction, and infrastructure.</h2>
+          <p class="section-intro">I believe the next major shift in AI will come from systems that become more useful through interaction over time—understanding context, adapting to changing goals, and personalizing without becoming opaque, intrusive, or overly controlling.</p>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="bio-grid">
+        <div class="bio-copy">
+          <p>I am a <strong>Senior Program Officer at the Gates Foundation's US Programs</strong>, where I support AI strategy, infrastructure, and deployment for K–12 and postsecondary education. I work alongside foundation colleagues, university researchers, and AI companies including Anthropic to build the field conditions for responsible, equitable AI adoption in education.</p>
+          <p>My research centers on <strong>AI literacy</strong>—what it means to understand AI well enough to question it—and how to design systems that build that capacity rather than bypass it. I have published two books (Corwin 2025, Springer 2026) and peer-reviewed papers with co-authors from MIT Media Lab, Columbia University, and Teachers College. My work spans curriculum frameworks, game-based learning, professional development, and agentic AI safety.</p>
+          <p><strong>At the product level,</strong> I build and evaluate AI experiences that translate personalization into real user value. Through <a href="https://writehumanly.net/" target="_blank" rel="noopener"><strong>Humanly</strong></a>, I explore how AI-assisted experiences can remain configurable, traceable, and user-controlled; through my work in AI literacy and learning products, I focus on systems that support reflection, agency, and deeper learning rather than simply faster answers.</p>
+          <p><strong>At the human-AI interaction level,</strong> my research at the <a href="https://www.media.mit.edu/people/xiaoxued/overview/" target="_blank" rel="noopener"><strong>MIT Media Lab</strong></a> examined how people understand, collaborate with, and build trust with AI systems. That work continues to shape my product philosophy: personalization should reflect how people actually think, learn, change their minds, and develop relationships with intelligent systems over time.</p>
+          <p><strong>At the AI infrastructure level,</strong> I contribute to the <a href="https://hcp.me/" target="_blank" rel="noopener"><strong>Human Context Protocol</strong></a> (MIT, Stanford, Oxford — Shah et al.), an open architecture for user-governed AI memory and personalization. I also model frontier agentic AI safety risks applied to education infrastructure, and serve as external evaluator for the <a href="https://www.nsf.gov" target="_blank" rel="noopener">NSF</a>-funded Science Pathways Scholars Program (SP)² at Barnard College (Award 2030903).</p>
+          <p>I hold an <strong>EdD from <a href="https://www.tc.columbia.edu" target="_blank" rel="noopener">Teachers College, Columbia University</a></strong>.</p>
+        </div>
+        <aside class="bio-links">
+          <h3>Selected profiles &amp; talks</h3>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/xiaoxue-du-bamboo/" target="_blank" rel="noopener">LinkedIn profile ↗</a></li>
+            <li><a href="https://www.media.mit.edu/people/xiaoxued/overview/" target="_blank" rel="noopener">MIT Media Lab profile ↗</a></li>
+            <li><a href="https://www.tc.columbia.edu/mathematics-science-and-technology/news/mst-local-stories/alumni-feature-dr-xiaoxue-du/" target="_blank" rel="noopener">Teachers College alumni feature ↗</a></li>
+            <li><a href="https://academy.openai.com/public/videos/xiaoxue-du-education-2025-08-20" target="_blank" rel="noopener">OpenAI Academy — AI &amp; Education ↗</a></li>
+            <li><a href="https://dayofai.org" target="_blank" rel="noopener">Day of AI ↗</a></li>
+            <li><a href="https://scholar.google.com/citations?hl=en&user=JbQVY8oAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a></li>
+          </ul>
+          <p class="bio-note">Selected public work on human-AI interaction, learning, and responsible AI.</p>
+        </aside>
+      </div>
+    </section>
 
-  <!-- 2025 -->
-  <div class="pub-group">
-    <div class="pub-year-label">2025</div>
-
-    <div class="pub">
-      <span class="pub-num">4</span>
-      <div class="pub-body">
-        <span class="pub-title"><a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener">Teaching AI Literacy Across the Curriculum: A K-12 Handbook</a></span>
-        <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
-        <div class="pub-venue">Corwin Press. Thousand Oaks, CA. July 2025.</div>
-        <div class="pub-badges">
-          <span class="badge badge-link"><a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener">Corwin →</a></span>
-          <span class="badge">book</span>
-          <span class="badge">K–12</span>
-          <span class="badge">20+ lessons</span>
+    <section id="publications">
+      <div class="section-head">
+        <div class="section-kicker">Research &amp; writing</div>
+        <div>
+          <h2 class="section-title">Evidence behind the product point of view.</h2>
+          <p class="section-intro">My research is part of the product work: it helps define the human problems worth solving, the behaviors worth designing for, and the evidence needed to know whether AI is actually helping people learn, create, and retain agency.</p>
         </div>
       </div>
-    </div>
 
-    <div class="pub">
-      <span class="pub-num">5</span>
-      <div class="pub-body">
-        <span class="pub-title">AI Literacy Professional Development: A Six-Week Mixed-Methods Study with K–12 Teachers</span>
-        <div class="pub-authors"><span class="me">Du, X.</span></div>
-        <div class="pub-venue">Under review. Industrial Marketing Management.</div>
-        <div class="pub-badges">
-          <span class="badge badge-review">under review</span>
-          <span class="badge">teacher PD</span>
-          <span class="badge">mixed methods</span>
-          <span class="badge">UTAUT2</span>
+      <div class="writing-grid">
+        <div>
+          <div class="pub-group">
+            <div class="pub-year">2026</div>
+
+            <div class="pub">
+              <span class="pub-num">1</span>
+              <div>
+                <span class="pub-title"><a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener">A Pedagogical Framework for K–12 AI Literacy: Development, Validation, and Applications in Teacher Education</a></span>
+                <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
+                <div class="pub-venue">Springer Texts in Education. Springer Nature Switzerland AG.</div>
+                <div class="badges"><span class="badge link"><a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener">Springer →</a></span><span class="badge">book</span><span class="badge">K–12</span><span class="badge">AI literacy</span></div>
+              </div>
+            </div>
+
+            <div class="pub">
+              <span class="pub-num">2</span>
+              <div>
+                <span class="pub-title"><a href="https://digitaleconomy.stanford.edu/publication/the-future-of-personal-ai-portable-and-persistent-personal-memory-through-a-unified-human-context-protocol/" target="_blank" rel="noopener">The Future of Personal AI: Portable and Persistent Personal Memory through a Unified Human Context Protocol</a></span>
+                <div class="pub-authors"><span class="me">Du, X.</span></div>
+                <div class="pub-venue">Global Memory Workshop Final Report. Stanford Digital Economy Lab, AWS, Mozilla, Stanford HAI, Gates Foundation.</div>
+                <div class="badges"><span class="badge link"><a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me →</a></span><span class="badge">memory</span><span class="badge">AI architecture</span></div>
+              </div>
+            </div>
+
+            <div class="pub">
+              <span class="pub-num">3</span>
+              <div>
+                <span class="pub-title"><a href="https://arxiv.org/abs/2607.21758" target="_blank" rel="noopener">Humanly: A Configurable and Traceable Environment for Human-AI Collaborative Writing</a></span>
+                <div class="pub-authors">Zhu, S., Zhang, H., Yang, X., Tang, J., Nian, Y., <span class="me">Du, X.</span>, Yang, S., Pentland, A., Baumann, J., &amp; Pei, J.</div>
+                <div class="pub-venue">arXiv preprint, July 2026.</div>
+                <div class="badges"><span class="badge link"><a href="https://arxiv.org/abs/2607.21758" target="_blank" rel="noopener">arXiv →</a></span><span class="badge">human-AI writing</span><span class="badge">traceability</span></div>
+              </div>
+            </div>
+
+            <div class="pub">
+              <span class="pub-num">4</span>
+              <div>
+                <span class="pub-title">Pedagogical framework for AI literacy integration: Applications for mathematics teaching and learning</span>
+                <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
+                <div class="pub-venue">Proceedings of CERME14. European Society for Research in Mathematics Education, Free University of Bozen-Bolzano.</div>
+                <div class="badges"><span class="badge">conference</span><span class="badge">mathematics education</span><span class="badge">AI literacy</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-group">
+            <div class="pub-year">2025</div>
+
+            <div class="pub">
+              <span class="pub-num">5</span>
+              <div>
+                <span class="pub-title"><a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener">Teaching AI Literacy Across the Curriculum: A K–12 Handbook</a></span>
+                <div class="pub-authors"><span class="me">Lyublinskaya, I.</span> &amp; <span class="me">Du, X.</span></div>
+                <div class="pub-venue">Corwin Press. Thousand Oaks, CA. July 2025.</div>
+                <div class="badges"><span class="badge link"><a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener">Corwin →</a></span><span class="badge">book</span><span class="badge">K–12</span><span class="badge">20+ lessons</span></div>
+              </div>
+            </div>
+
+            <div class="pub">
+              <span class="pub-num">6</span>
+              <div>
+                <span class="pub-title">AI Literacy Professional Development: A Six-Week Mixed-Methods Study with K–12 Teachers</span>
+                <div class="pub-authors"><span class="me">Du, X.</span></div>
+                <div class="pub-venue">Under review.</div>
+                <div class="badges"><span class="badge review">under review</span><span class="badge">teacher PD</span><span class="badge">mixed methods</span><span class="badge">UTAUT2</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-group">
+            <div class="pub-year">2023</div>
+            <div class="pub">
+              <span class="pub-num">7</span>
+              <div>
+                <span class="pub-title"><a href="https://journals.bilpubgroup.com/index.php/jcsr/article/view/5999" target="_blank" rel="noopener">Play by Design: Developing Artificial Intelligence Literacy through Game-based Learning</a></span>
+                <div class="pub-authors"><span class="me">Du, X.</span> &amp; Wang, X.</div>
+                <div class="pub-venue">Journal of Computer Science Research, 5(4). MIT Media Lab, Cambridge, MA.</div>
+                <div class="badges"><span class="badge link"><a href="https://journals.bilpubgroup.com/index.php/jcsr/article/view/5999" target="_blank" rel="noopener">Read →</a></span><span class="badge">game-based learning</span><span class="badge">pre-service teachers</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pub-group">
+            <div class="pub-year">2020</div>
+            <div class="pub">
+              <span class="pub-num">8</span>
+              <div>
+                <span class="pub-title">Usability Studies of an Egocentric Vision-Based Robotic Wheelchair</span>
+                <div class="pub-authors">Kutbi, M., <span class="me">Du, X.</span>, Chang, Y., Sun, B., Agadakos, N., Li, H., &amp; Mordohai, P.</div>
+                <div class="pub-venue">ACM Transactions on Human-Robot Interaction (THRI), 10(1), 1–23.</div>
+                <div class="badges"><span class="badge">HRI</span><span class="badge">usability</span><span class="badge">ACM THRI</span></div>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-size:.8rem;color:var(--muted)">Full list on <a href="https://scholar.google.com/citations?hl=en&user=JbQVY8oAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar ↗</a></p>
+        </div>
+
+        <aside class="side-note">
+          <h3>Day of AI</h3>
+          <p>Helped launch and facilitate MIT's modular AI literacy initiative in 2022; research participants included 108 teachers in 20+ countries reaching 7,000+ students.</p>
+          <a href="https://dayofai.org" target="_blank" rel="noopener">Visit Day of AI ↗</a>
+          <p style="margin-top:22px"><strong>Talks &amp; convenings</strong></p>
+          <p>Presented <em>Empathy Co-Pilots and AI Literacy Infrastructure</em> at the MIT Media Lab Members Meeting, Rising Stars Panel (2025).</p>
+          <p style="margin-top:14px">Co-organized the Wharton × Gates Foundation Builder-a-thon on AI's impact on jobs and learning (2026), and organized the Gates Foundation US Programs' first structured AI literacy event, USP Day of AI Learning.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="news" style="border-bottom:0">
+      <div class="section-head">
+        <div class="section-kicker">News</div>
+        <div>
+          <h2 class="section-title">Recent work and releases.</h2>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- 2023 -->
-  <div class="pub-group">
-    <div class="pub-year-label">2023</div>
-
-    <div class="pub">
-      <span class="pub-num">6</span>
-      <div class="pub-body">
-        <span class="pub-title"><a href="https://journals.bilpubgroup.com/index.php/jcsr/article/view/5999" target="_blank" rel="noopener">Play by Design: Developing Artificial Intelligence Literacy through Game-based Learning</a></span>
-        <div class="pub-authors"><span class="me">Du, X.</span> &amp; Wang, X.</div>
-        <div class="pub-venue">Journal of Computer Science Research, 5(4). MIT Media Lab, Cambridge, MA.</div>
-        <div class="pub-badges">
-          <span class="badge badge-link"><a href="https://journals.bilpubgroup.com/index.php/jcsr/article/view/5999" target="_blank" rel="noopener">Read →</a></span>
-          <span class="badge">game-based learning</span>
-          <span class="badge">pre-service teachers</span>
-          <span class="badge">MIT Media Lab</span>
-        </div>
+      <div class="news">
+        <div class="news-row"><time>Jun 2026</time><p>Launched <a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me</a> — a live demo of the <strong>Human Context Protocol</strong>, implementing memory, consent, and cross-system handoff for user-governed AI personalization.</p></div>
+        <div class="news-row"><time>May 2026</time><p>Organized the <strong>USP Day of AI Learning</strong> — the Gates Foundation US Programs' first structured AI literacy event.</p></div>
+        <div class="news-row"><time>May 2026</time><p>Co-organized the <strong>Wharton × Gates Foundation Builder-a-thon</strong> on AI's impact on jobs and learning.</p></div>
+        <div class="news-row"><time>2026</time><p>New book: <a href="https://link.springer.com/book/9783032235695" target="_blank" rel="noopener"><strong>A Pedagogical Framework for K–12 AI Literacy</strong></a> (Lyublinskaya &amp; Du) published by Springer Nature in the Texts in Education series.</p></div>
+        <div class="news-row"><time>2025</time><p>Completed the <strong>Global Memory Workshop</strong> synthesis report on portable human context and user-governed memory architecture (AWS, Mozilla, Stanford HAI, Gates Foundation).</p></div>
+        <div class="news-row"><time>Jul 2025</time><p>New book: <a href="https://www.corwin.com/books/teaching-ai-literacy-291708" target="_blank" rel="noopener"><strong>Teaching AI Literacy Across the Curriculum: A K–12 Handbook</strong></a> (Lyublinskaya &amp; Du) published by Corwin Press.</p></div>
+        <div class="news-row"><time>2025</time><p>Presented <strong>Empathy Co-Pilots and AI Literacy Infrastructure</strong> at the MIT Media Lab Members Meeting, Rising Stars Panel.</p></div>
+        <div class="news-row"><time>2023</time><p>Paper accepted: <strong>Play by Design: Developing AI Literacy through Game-based Learning</strong>, Journal of Computer Science Research. MIT Media Lab affiliation.</p></div>
       </div>
-    </div>
+    </section>
+
+    <footer><span>© 2026 Xiaoxue Du</span><span>AI Product · Learning · Human-AI Interaction</span></footer>
   </div>
-
-  <!-- 2020 -->
-  <div class="pub-group">
-    <div class="pub-year-label">2020</div>
-
-    <div class="pub">
-      <span class="pub-num">7</span>
-      <div class="pub-body">
-        <span class="pub-title">Usability Studies of an Egocentric Vision-Based Robotic Wheelchair</span>
-        <div class="pub-authors">Kutbi, M., <span class="me">Du, X.</span>, Chang, Y., Sun, B., Agadakos, N., Li, H., &amp; Mordohai, P.</div>
-        <div class="pub-venue">ACM Transactions on Human-Robot Interaction (THRI), 10(1), 1–23.</div>
-        <div class="pub-badges">
-          <span class="badge">HRI</span>
-          <span class="badge">usability</span>
-          <span class="badge">ACM THRI</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem">
-    Full list on <a href="https://scholar.google.com/citations?hl=en&user=JbQVY8oAAAAJ&view_op=list_works&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>.
-  </p>
-</div>
-
-<!-- PROJECTS -->
-<div class="sec" id="projects">
-  <p class="sec-label">Projects</p>
-
-  <!-- TEACHER COPILOT -->
-  <div class="proj">
-    <div class="proj-header">
-      <span class="proj-name"><a href="https://xd2164.github.io/teacher-copilot/" target="_blank" rel="noopener">Teacher Co-Pilot</a></span>
-      <span class="proj-pill pill-live">live</span>
-    </div>
-    <div class="proj-meta">
-      <span>Design · Create · Reflect</span>
-      <span class="proj-meta-sep">·</span>
-      <span>memory-enabled instructional assistant</span>
-      <span class="proj-meta-sep">·</span>
-      <span>K–12</span>
-    </div>
-    <p class="proj-desc">
-      A chat-based planning partner that converts learning goals into lesson plans, prompts, and
-      assessments across any K–12 subject — grounded in the Big Five Ideas in AI from the Corwin
-      and Springer books. Not a one-shot generator: three phases — <em>Design</em> (frame goals,
-      surface student questions, connect to standards), <em>Create</em> (build activities and
-      materials through natural conversation), and <em>Reflect</em> (save post-lesson insights as
-      reusable memory). No student AI accounts needed. Export to Markdown in one click.
-    </p>
-    <div class="proj-tags">
-      <span class="ptag">AI literacy</span><span class="ptag">K–12</span><span class="ptag">lesson design</span><span class="ptag">memory</span><span class="ptag">open access</span>
-    </div>
-  </div>
-
-  <!-- TEEN AI EXPLORER KIT -->
-  <div class="proj">
-    <div class="proj-header">
-      <span class="proj-name"><a href="https://xd2164.github.io/Teen-AI-Explorer-Kit/" target="_blank" rel="noopener">Teen AI Explorer Kit</a></span>
-      <span class="proj-pill pill-live">live</span>
-    </div>
-    <div class="proj-meta">
-      <span>Five Big Ideas in AI · five curriculum kits</span>
-      <span class="proj-meta-sep">·</span>
-      <span>total beginners · no coding required</span>
-    </div>
-    <p class="proj-desc">
-      A structured youth starter kit built directly from the Corwin handbook — four zones
-      (Play &amp; Explore, Build Blocks, Code &amp; Create, Project Prompts) and five deep-dive
-      curriculum kits, one per Big Idea. Each kit contains a 5-step build sequence, three
-      reflect prompts, cross-disciplinary lessons with NGSS and CCSS standards, and a core
-      ethical question from the book. Every tool is free; no accounts required. Companion
-      to <a href="https://companion.corwin.com/courses/TeachingAILiteracy" target="_blank" rel="noopener">companion.corwin.com/courses/TeachingAILiteracy</a>.
-    </p>
-    <div class="proj-tags">
-      <span class="ptag">AI literacy</span><span class="ptag">youth</span><span class="ptag">game-based</span><span class="ptag">no-code entry</span><span class="ptag">equity</span><span class="ptag">NGSS · CCSS</span>
-    </div>
-  </div>
-
-  <!-- RESEARCH DISCOVERY KIT -->
-  <div class="proj">
-    <div class="proj-header">
-      <span class="proj-name"><a href="https://github.com/xd2164/research_development_agent" target="_blank" rel="noopener">Research Discovery Kit</a></span>
-      <span class="proj-pill pill-open">open source</span>
-    </div>
-    <div class="proj-meta">
-      <span>RAG · LLM evidence grading · decision briefs</span>
-      <span class="proj-meta-sep">·</span>
-      <span>observatory interface · MIT license</span>
-    </div>
-    <p class="proj-desc">
-      A synthesis platform combining retrieval-augmented generation with LLM evidence grading
-      to produce structured decision briefs. Built as an interactive observatory with multiple views
-      for navigating evidence landscapes — designed for Gates Foundation education portfolio
-      decision-making, generalizable to any evidence-heavy research context. Includes
-      index, observatory, and displacement views for different analytical angles on the
-      same evidence base.
-    </p>
-    <div class="proj-tags">
-      <span class="ptag">RAG</span><span class="ptag">evidence grading</span><span class="ptag">decision briefs</span><span class="ptag">LLM</span><span class="ptag">open source</span>
-    </div>
-  </div>
-
-  <!-- HCP -->
-  <div class="proj">
-    <div class="proj-header">
-      <span class="proj-name"><a href="https://hcp.me/" target="_blank" rel="noopener">Human Context Protocol</a></span>
-      <span class="proj-pill pill-live">live · hcp.me</span>
-    </div>
-    <div class="proj-meta">
-      <span>memory · consent · cross-system handoff</span>
-      <span class="proj-meta-sep">·</span>
-      <span>MIT · Stanford · Oxford (Shah et al.)</span>
-    </div>
-    <p class="proj-desc">
-      Built <a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me</a> — a
-      personalization demo implementing the Human Context Protocol, a user-centric
-      architecture for secure, interoperable AI preference management. Underlying research by
-      Shah, South, Evans, Kirk, Pei, Trask, Weyl &amp; Bakker (MIT, Stanford, Oxford) proposes
-      a standard for how AI systems should manage, store, and transfer personal context without
-      ceding user control. The demo shows memory layers, granular consent flows, and
-      cross-system handoff working end-to-end.
-    </p>
-    <div class="proj-tags">
-      <span class="ptag">memory architecture</span><span class="ptag">user-governed AI</span><span class="ptag">consent</span><span class="ptag">portability</span><span class="ptag">frontier AI</span>
-    </div>
-  </div>
-
-  <!-- EDUAGENT -->
-  <div class="proj">
-    <div class="proj-header">
-      <span class="proj-name">EDUAgent</span>
-      <span class="proj-pill pill-active">internal · Gates Foundation</span>
-    </div>
-    <div class="proj-meta">
-      <span>Claude API · field intelligence · evidence synthesis</span>
-      <span class="proj-meta-sep">·</span>
-      <span>US Programs portfolio</span>
-    </div>
-    <p class="proj-desc">
-      An AI field intelligence agent powering evidence discovery, market insights, and R&D
-      synthesis for the Foundation's US Programs portfolio. One of six education agent archetypes
-      in the hub (Personalized Learning, Curriculum Design, Field Intelligence, PO Copilot,
-      MEL Intelligence, Simulation R&D). Designed so AI surfaces evidence and sharpens human
-      judgment — not replaces it. Reference deployment for AI-literacy-conscious agentic
-      system design.
-    </p>
-    <div class="proj-tags">
-      <span class="ptag">agentic AI</span><span class="ptag">Claude API</span><span class="ptag">postsecondary</span><span class="ptag">evidence synthesis</span><span class="ptag">education strategy</span>
-    </div>
-  </div>
-
-
-</div>
-
-<!-- CONTACT -->
-<div class="sec" id="contact">
-  <p class="sec-label">Contact</p>
-  <p style="font-size:.88rem;color:var(--mid);line-height:1.85;margin-bottom:1.25rem">
-    I'm glad to talk about AI literacy research, frontier AI modeling, higher ed deployment strategy, evaluation infrastructure, or collaboration on any of the projects above.
-  </p>
-  <div class="contact-rows">
-    <span class="ck">email</span><span class="cv"><a href="mailto:xdu@gatesfoundation.org">xdu@gatesfoundation.org</a></span>
-    <span class="ck">github</span><span class="cv"><a href="https://github.com/xd2164" target="_blank" rel="noopener">github.com/xd2164</a></span>
-    <span class="ck">hcp</span><span class="cv"><a href="https://hcp.me/" target="_blank" rel="noopener">hcp.me</a></span>
-    <span class="ck">scholar</span><span class="cv"><a href="https://scholar.google.com/citations?hl=en&user=JbQVY8oAAAAJ" target="_blank" rel="noopener">Google Scholar</a></span>
-    <span class="ck">linkedin</span><span class="cv"><a href="https://www.linkedin.com/in/xiaoxue-du-bamboo/" target="_blank" rel="noopener">Xiaoxue Du</a></span>
-    <span class="ck">location</span><span class="cv" style="color:var(--muted)">Bellevue, WA</span>
-  </div>
-</div>
-
-</div><!-- end .page -->
-
-<footer class="page">
-  Xiaoxue Du &nbsp;·&nbsp; 2026
-</footer>
-
+</main>
 </body>
 </html>
